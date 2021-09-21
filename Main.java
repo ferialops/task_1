@@ -4,20 +4,26 @@ import java.util.Locale;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         Locale.setDefault(Locale.ROOT);
 
         Scanner scan = new Scanner(System.in);
 
         System.out.print("Введите длину окружности: L = ");
-        double l = scan.nextDouble();
+        double length = scan.nextDouble();
 
-        double r = l / (2 * Math.PI);
+        if (length <= 0){
+            System.out.println("ВВедено некорректное значение.");
+        }
+        else {
 
-        double s = Math.PI * r * r;
+            double radius = length / (2 * Math.PI);
 
-        System.out.printf(
-                "Радиус окружности равен = %1$.3f площадь круга = %2$.3f", r , s
-        );
+            double area = Math.PI * radius * radius;
+
+            System.out.printf(
+                    "Радиус окружности равен = %1$.3f площадь круга = %2$.3f", radius, area
+            );
+        }
     }
 }
