@@ -13,7 +13,7 @@ public class Main {
         double length = scan.nextDouble();
 
         if (length <= 0){
-            System.out.println("ВВедено некорректное значение.");
+            System.out.println("Введено некорректное значение.");
         }
         else {
 
