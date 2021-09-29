@@ -7,23 +7,36 @@ public class Main {
     public static void main(String[] args) {
         Locale.setDefault(Locale.ROOT);
 
-        Scanner scan = new Scanner(System.in);
+        double length = readLength();
 
-        System.out.print("Введите длину окружности: L = ");
+        double radious = calculateRadious(length);
+
+        double area = calculateArea(radious);
+
+        printResult(radious, area);
+
+    }
+
+    static double readLength() { 
+        System.out.print("Введите длину окружности: L =");
+
+        Scanner scan = new Scanner(System.in);
         double length = scan.nextDouble();
 
         if (length <= 0){
-            System.out.println("Введено некорректное значение.");
+            System.out.print("Введено неверное значение.");
+            System.exit(1);
         }
-        else {
-
-            double radius = length / (2 * Math.PI);
-
-            double area = Math.PI * radius * radius;
-
-            System.out.printf(
-                    "Радиус окружности равен = %1$.3f площадь круга = %2$.3f", radius, area
-            );
+            return length;
         }
+
+    static double calculateRadious(double length){ return length / (2 * Math.PI);}
+
+    static double calculateArea(double radious) {return Math.PI * radious * radious;}
+
+    static void printResult(double radious, double area){
+        System.out.printf(
+                "Радиус окружности равен = %1$.3f площадь круга = %2$.3f", radious, area);
     }
+
 }
